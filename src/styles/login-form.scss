@@ -1,0 +1,30 @@
+.loginContainer{
+  height: 100vh;
+  background: floralwhite;
+  width: 100vw;
+}
+.loginWrapper{
+  transform:translateY(20%);
+  margin: auto;
+}
+
+.loginCard{
+  width: 35%;
+  margin: auto;
+  border:1px solid rgba(0,0,0,.1);
+  border-radius: 14px;
+}
+.loginButton{
+  width: 60%;
+  height:40px ;
+  border-radius:20px ;
+  margin: auto;
+}
+@media(max-width: 800px){
+  .loginCard{
+    width: 90%;
+  }
+  .loginButton{
+    width: 40%;
+  }
+}

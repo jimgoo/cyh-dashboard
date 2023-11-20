@@ -1,0 +1,73 @@
+@import "variables";
+.sessionContainer{
+  width: 70%;
+  margin: auto;
+  overflow-y: hidden;
+}
+.sessionTitle{
+  color:#000;
+  font-size: 18px;
+  line-height: normal;
+  font-weight: 700;
+}
+.sessionParagraph{
+  color: #3F3F3F;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.sessionListHeader{
+  font-weight: 700;
+  color:#3F3F3F;
+  line-height: normal;
+  font-size: 15px;
+}
+
+.sessionListItem{
+  color: #3F3F3F;
+  font-size: 15px;
+  font-weight: 400;
+}
+.sessionContent{
+  min-height: 80vh;
+}
+.sessionActions{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 10px 20px;
+  //position: fixed;
+  //bottom: 70px;
+  width: 100%;
+}
+.header{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.back{
+  cursor:pointer;
+}
+.linkContainer{
+  display: grid;
+  grid-row-gap: 15px;
+
+}
+.sessionLink{
+  color: $primary-color;
+  text-underline: $primary-color;
+}
+@media (max-width: 800px) {
+  .sessionContainer{
+    width: 80%;
+  }
+  .sessionActions{
+    position: static;
+    width: 100%;
+  }
+  .sessionContent{
+    min-height: 70vh;
+  }
+
+}
