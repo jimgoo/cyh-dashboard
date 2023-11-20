@@ -32,9 +32,14 @@ The task is to update the look of the home page so that it matches this Figma de
 
 ![figma design](src/assets/figma-design.png)
 
-- You can use any CSS framework you like, or no framework at all. The only requirement is that the layout of the new home page looks like the Figma design and the colors somewhat match between the two. Getting the layout right is more important than getting the colors to match perfectly. The current code is using Ant Design, but you can remove this if you like and use Material UI or whatever you prefer.
+### Requirements
+
+- The layout of the new home page should look like the Figma design and the colors should somewhat match between the two. Getting the layout right is more important than getting the colors to match perfectly. The current code is using Ant Design, but you can remove this if you like and use Material UI or whatever you prefer.
 - Don't worry about making the mobile design, just do the desktop design since that's all that is shown in Figma.
 - There are two API calls already being made by the existing code to our backend, and the one to `https://api.chooseketamine.com/users` gives information on your example user including their first and last name. Use this information instead of the "Josh" placeholder in the Figma design.
-- The image of the woman in space from the Figma design is included in this repo at `src/assets/woman-in-space.png`.
 - Update the test in `test/test-packs.spec.js` to test the new design. The test should check for the presence of the elements Session 1, Session 2, Follow-up Consult, Session 3, and Session 4 like the existing test does. You can leave out "Purchase a New Plan" since that is not in the Figma design. Note the existing test is checking for Ant Design classes, so you'll need to update it to check for the classes you use if you remove Ant Design.
+
+### Notes
+
+- The image of the woman in space from the Figma design is included in this repo at `src/assets/woman-in-space.png`.
 - Only the home page of the Figma design needs to be implemented, don't worry about adding the other tabs for Integration, Group Circle, Billing, FAQ, and Contact.
