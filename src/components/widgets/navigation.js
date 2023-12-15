@@ -34,30 +34,30 @@ const Navigation = ({ collapsed }) => {
       label: 'Home',
       path: '/home',
     },
-    // {
-    //   key: 2,
-    //   icon: <PersonIcon />,
-    //   label: 'Integration',
-    //   path: '/integration',
-    // },
-    // {
-    //   key: 3,
-    //   icon: <PeopleIcon />,
-    //   label: 'Group Integration',
-    //   path: '/group-integration',
-    // },
-    // {
-    //   key: 4,
-    //   icon: <HelpIcon />,
-    //   label: 'FAQs',
-    //   path: '/faq',
-    // },
-    // {
-    //   key: 5,
-    //   icon: <ContactSupportIcon />,
-    //   label: 'Contact',
-    //   path: '/contact',
-    // },
+    {
+      key: 2,
+      icon: <PersonIcon />,
+      label: 'Integration',
+      path: '/integration',
+    },
+    {
+      key: 3,
+      icon: <PeopleIcon />,
+      label: 'Group Integration',
+      path: '/group-integration',
+    },
+    {
+      key: 4,
+      icon: <HelpIcon />,
+      label: 'FAQs',
+      path: '/faq',
+    },
+    {
+      key: 5,
+      icon: <ContactSupportIcon />,
+      label: 'Contact',
+      path: '/contact',
+    },
   ];
 
   // Add path to menu items
@@ -65,6 +65,17 @@ const Navigation = ({ collapsed }) => {
     item.onClick = () => {
       router.push(item.path);
       setSelectedKey(item.key);
+    };
+  });
+
+  // Add custom styles for selected item
+  const styledMenuItems = menuItems.map((item) => {
+    const isSelected = item.key === selectedKey;
+    console.log(item.key, selectedKey);
+    console.log(`Item ${item.key} is selected: ${isSelected}`);
+    return {
+      ...item,
+      style: isSelected ? { color: '#000000', fontWeight: 'bold' } : {}, // Add your custom styles for selected item here
     };
   });
 
@@ -82,9 +93,7 @@ const Navigation = ({ collapsed }) => {
       {!screens.xs ? (
         <Sider
           style={{
-            background: '#4261EF',
-            borderTopRightRadius: '20px',
-            borderBottomRightRadius: '20px',
+            background: '#FFFFFF',
             minHeight: '100vh',
             maxHeight: 'fit-content',
           }}
@@ -101,17 +110,17 @@ const Navigation = ({ collapsed }) => {
           <div>
             <Menu
               style={{
-                background: '#4261EF',
+                background: '#ffffff',
                 fontSize: '16px',
                 fontWeight: '500',
-                color: 'white',
+                color: '#949494',
               }}
               onChange={(a) => {
                 console.log('onChange for menu', a);
               }}
               mode="inline"
               selectedKeys={[selectedKey.toString()]}
-              items={menuItems}
+              items={styledMenuItems}
             />
             <Button
               type="text"
