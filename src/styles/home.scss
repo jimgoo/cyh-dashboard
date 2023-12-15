@@ -122,4 +122,27 @@
     right: 0;
     overflow: hidden;
     z-index: 1;
-  }
+}
+
+.upcoming-section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.upcoming-section-header .heading {
+    color: #000;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.upcoming-section-header .paragraph {
+    color: var(--Text, #1B1B1B);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+}

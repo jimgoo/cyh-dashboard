@@ -19,10 +19,9 @@ import { Alert } from 'antd';
 import { formatDateDayOnly } from '@/utils/helpers';
 import todoService from '@/services/todo.service';
 import TodayPlan from './TodayPlan';
-import useCapitalize from '@/hooks/use-capitalize';
+import HomeSectionHeader from './HomeSectionHeader';
 
 const HomeSection = () => {
-  const capitalize = useCapitalize();
   const productsData = useProducts();
   const todoData = useUserTodo();
   const userData = useUser();
@@ -155,23 +154,16 @@ const HomeSection = () => {
           <div
             style={{ width: '80%', overflowY: 'none', marginBottom: '100px', paddingTop: '67px' }}
           >
-            <h1 style={{ fontSize: '30px', fontWeight: 'bold', margin: 0 }}>
-              {`Hi ${capitalize(userData.firstname)}! We're so happy to see you here!`}
-            </h1>
-            <div style={{ display: 'flex', width: '100%', gap: '25px', marginTop: '22px' }}>
-              {/* COMPLETION CARD */}
-              <div className="card" style={{ width: '215px' }}>
-                <div className="progress-ring" style={{ marginBottom: '15px' }}>
-                  0%
-                </div>
-                <span style={{ fontSize: '27px', fontWeight: 500, marginBottom: '8px' }}>
-                  Completion
-                </span>
-                <div className="plan-count-pill">4 Session Plan</div>
-              </div>
-              {/* EMPTY CARD */}
-              <div className="card" style={{ flexGrow: 1 }}></div>
+            <HomeSectionHeader userData={userData} />
+
+            <div className="upcoming-section-header" style={{ marginTop: '52px' }}>
+              <div className="heading">Future Sessions</div>
+              <p className="paragraph">
+                View the details of your future sessions including the session plan, important
+                reminders, or requirements for the specific session.
+              </p>
             </div>
+
             {showSelect && productsData && Object.keys(productsData).length > 1 && (
               <div>
                 <select
@@ -188,9 +180,6 @@ const HomeSection = () => {
                 </select>
               </div>
             )}
-            {/* <div>
-            {!rejectedStatus && <p className="font-small font-weight-400">{HOME_DESCRIPTION}</p>}
-          </div> */}
             <Conditional showWhen={!sessionStatus || rejectedStatus}>
               <UserStatusCards status={userData.user_status} token={token} />
             </Conditional>
