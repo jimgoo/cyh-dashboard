@@ -43,3 +43,4 @@ The task is to update the look of the home page so that it matches this Figma de
 
 - The image of the woman in space from the Figma design is included in this repo at `src/assets/woman-in-space.png`.
 - Only the home page of the Figma design needs to be implemented, don't worry about adding the other tabs for Integration, Group Circle, Billing, FAQ, and Contact.
+
