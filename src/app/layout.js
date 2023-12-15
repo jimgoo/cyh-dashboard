@@ -1,4 +1,5 @@
 import '../styles/common.scss';
+import '../styles/navigation.scss';
 import '../styles/screen-media-query.scss';
 import '../styles/utilities.scss';
 import 'react-toastify/dist/ReactToastify.css';

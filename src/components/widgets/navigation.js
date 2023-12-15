@@ -1,17 +1,20 @@
 'use client';
 import Image from 'next/image';
-import ChooseLife from '@/assets/svgs/logo-white.svg';
+import ChooseLife from '@/assets/svgs/logo-blue.svg';
 import { Menu, Grid, Layout, Card, Button } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
-import HomeIcon from '@mui/icons-material/Home';
-import PersonIcon from '@mui/icons-material/Person';
-import HelpIcon from '@mui/icons-material/Help';
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-import PeopleIcon from '@mui/icons-material/People';
+// New icon imports
+import HomeIcon from '../icons/HomeIcon';
+import PersonIcon from '../icons/PersonIcon';
+import PeopleIcon from '../icons/PeopleIcon';
+import BillingIcon from '../icons/BillingIcon';
+import HelpIcon from '../icons/HelpIcon';
+import ContactSupportIcon from '../icons/ContactSupportIcon';
+import LogoutIcon from '../icons/LogoutIcon';
 
-import { useUserToken } from '@/context/userContext';
+// import { useUserToken } from '@/context/userContext';
 import tokenService from '@/services/token.service';
 import { toast } from 'react-toastify';
 
@@ -19,10 +22,10 @@ const { useBreakpoint } = Grid;
 
 const { Sider } = Layout;
 
-const Navigation = ({ collapsed }) => {
+const Navigation = () => {
   const router = useRouter();
   const screens = useBreakpoint();
-  const token = useUserToken();
+  // const token = useUserToken();
   const path = usePathname();
 
   const [selectedKey, setSelectedKey] = useState(1);
@@ -43,17 +46,23 @@ const Navigation = ({ collapsed }) => {
     {
       key: 3,
       icon: <PeopleIcon />,
-      label: 'Group Integration',
-      path: '/group-integration',
+      label: 'Group Circles',
+      path: '/group-circles',
     },
     {
       key: 4,
+      icon: <BillingIcon />,
+      label: 'Billing',
+      path: '/billing',
+    },
+    {
+      key: 5,
       icon: <HelpIcon />,
       label: 'FAQs',
       path: '/faq',
     },
     {
-      key: 5,
+      key: 6,
       icon: <ContactSupportIcon />,
       label: 'Contact',
       path: '/contact',
@@ -71,11 +80,25 @@ const Navigation = ({ collapsed }) => {
   // Add custom styles for selected item
   const styledMenuItems = menuItems.map((item) => {
     const isSelected = item.key === selectedKey;
-    console.log(item.key, selectedKey);
-    console.log(`Item ${item.key} is selected: ${isSelected}`);
+
+    const iconProps = isSelected
+      ? { fill: 'black', stroke: 'black' }
+      : { fill: '#949494', stroke: '#949494' };
+
+    const additionalStyles = {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '4px',
+    };
+
     return {
       ...item,
-      style: isSelected ? { color: '#000000', fontWeight: 'bold' } : {}, // Add your custom styles for selected item here
+      className: 'custom-menu-item', // Apply the custom class
+      style: {
+        ...additionalStyles,
+        ...(isSelected ? { color: '#000000', fontWeight: 'bold' } : {}),
+      },
+      icon: React.cloneElement(item.icon, iconProps),
     };
   });
 
@@ -104,7 +127,7 @@ const Navigation = ({ collapsed }) => {
               priority={true}
               alt={'logo'}
               src={ChooseLife}
-              style={{ margin: 25, width: 90, height: 'auto' }}
+              style={{ margin: 25, width: 155, height: 'auto' }}
             />
           </div>
           <div>
@@ -112,7 +135,7 @@ const Navigation = ({ collapsed }) => {
               style={{
                 background: '#ffffff',
                 fontSize: '16px',
-                fontWeight: '500',
+                fontWeight: '700',
                 color: '#949494',
               }}
               onChange={(a) => {
@@ -124,14 +147,24 @@ const Navigation = ({ collapsed }) => {
             />
             <Button
               type="text"
-              className="bg-primary-color white-color primary-title button-small"
+              className="black-color font-weight-700"
               onClick={() => {
                 tokenService.deleteLocalAccessToken();
                 router.push('/auth/login');
                 toast.success('Logout Successfully!');
               }}
-              style={{ margin: 'auto', position: 'absolute', bottom: '20px', left: '20%' }}
+              style={{
+                margin: 'auto',
+                position: 'absolute',
+                bottom: '20px',
+                left: '20%',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                fontSize: '16px',
+              }}
             >
+              <LogoutIcon />
               Logout
             </Button>
           </div>

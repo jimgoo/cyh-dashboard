@@ -1,0 +1,7 @@
+.custom-menu-item:hover, .custom-menu-item.ant-menu-item-selected {
+    background-color: transparent !important;
+}
+
+.custom-menu-item:hover span {
+    color: black;
+}
