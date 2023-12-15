@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Layout, theme, Grid } from 'antd';
+import { Layout, theme } from 'antd';
 import { useUser, useUserToken } from '@/context/userContext';
 import { usePathname, useRouter } from 'next/navigation';
 import { PUBLIC_ENDPOINTS } from '@/utils/constants/constant';
@@ -11,7 +11,7 @@ const Navigation = dynamic(() => import('@/components/widgets/navigation'), { ss
 
 const MainLayout = ({ children }) => {
   const {
-    token: { colorBgContainer },
+    token: {},
   } = theme.useToken();
   const [isPublic, setIsPublic] = useState(true);
   const router = useRouter();
@@ -45,7 +45,7 @@ const MainLayout = ({ children }) => {
             <Content
               style={{
                 minHeight: 280,
-                background: 'white',
+                background: '#EEF3FA',
               }}
             >
               {children}

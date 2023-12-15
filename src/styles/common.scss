@@ -6,6 +6,19 @@
   color:$blue-color;
 }
 
+.contentWithBackground::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/path-to-your-svg.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  z-index: -1; /* Set behind the content */
+}
 
 //font-sizes
 

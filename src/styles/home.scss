@@ -1,0 +1,125 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 40px;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.progress-ring {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    border: 16px solid #eee;
+    width: 133px;
+    height: 133px;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.plan-count-pill {
+    width: fit-content;
+    border-radius: 67px;
+    background: rgba(67, 136, 240, 0.32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.today-plan {
+    height: 100%;
+    background-color: #1F2F44;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding: 67px 41px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: relative;
+    overflow: hidden;
+    max-width: 450px;
+}
+
+.user-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.user-dropdown .avatar {
+    width: 21px;
+    height: 21px;
+    background-color: #EB6A6A;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #721B1B;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+.today-plan .card {
+    z-index: 5;
+}
+
+.today-plan .card-heading {
+    color: var(--Text, #1B1B1B);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.today-plan .add-session {
+    border-top: 1.5px solid #D3D3D3;
+    border-bottom: 1.5px solid #D3D3D3;
+    width: 100%;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.today-plan .sub-heading {
+    color: var(--Text, #1B1B1B);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.today-plan .reminder-list {
+    list-style-type: disc;
+    padding-left: 4px;
+    margin-left: 4px;
+}
+
+.today-plan .schedule-now-btn {
+    display: flex;
+    padding: 11px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 23px;
+    background: #4261EF;
+    margin-right: auto;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.today-plan .woman-in-space {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+    z-index: 1;
+  }

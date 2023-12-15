@@ -1,4 +1,5 @@
 import '../styles/common.scss';
+import '../styles/home.scss';
 import '../styles/navigation.scss';
 import '../styles/screen-media-query.scss';
 import '../styles/utilities.scss';
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
         defer={true}
         src={'//js-na1.hs-scripts.com/5971026.js'}
       />
-      <body className="margin-none">
+      <body className="margin-none" style={{ backgroundColor: '#EEF3FA' }}>
         <LayoutConfig>{children}</LayoutConfig>
       </body>
     </html>

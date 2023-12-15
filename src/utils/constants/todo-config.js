@@ -1,4 +1,4 @@
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 const ALL_PRODUCTS = ['intro', 'mid', 'experienced', 'empowered', 'refund'];
 
@@ -48,7 +48,7 @@ export const todoConfig = () => {
       },
       {
         todoItem: 'video_consultation_followup',
-        heading: 'Follow Up Consultation',
+        heading: 'Follow Up Consult',
         route: `/video_consultation_followup`,
         description:
           'Great work on your progress so far! This step is to ensure that we are providing the best service to you and to improve your results.',
@@ -91,7 +91,7 @@ export const todoConfig = () => {
       },
       {
         todoItem: 'video_consultation_followup_after_sixth',
-        heading: 'Follow Up Consultation',
+        heading: 'Follow Up Consult',
         route: `/video_consultation_followup_after_sixth`,
         description:
           'Great work on your progress so far! This step is to ensure that we are providing the best service to you and to improve your results.',
@@ -231,13 +231,13 @@ export const globalTodos = [
   //   route: `https://checkout.chooseketamine.com/nmi?planId=59e78890-9661-4a95-8c14-ff921ab99d3e&userToken=${Cookies.get('token')}&nextURL=${encodeURIComponent(INTEGRATION_URL)}`,
   //   description: 'Add an additional integration session with one of our guides.',
   // },
-  {
-    todoItem: 'purchase_pack',
-    heading: 'Purchase a New Plan',
-    route: `https://www.chooseketamine.com/app/purchase-returning-client?token=${Cookies.get(
-      'token',
-    )}`,
-    description:
-      'Returning patients can purchase an additional treatment plan for 30% off. Once you purchase a new plan, you have to finish your current plan before you can start on the new one.',
-  },
+  // {
+  //   todoItem: 'purchase_pack',
+  //   heading: 'Purchase a New Plan',
+  //   route: `https://www.chooseketamine.com/app/purchase-returning-client?token=${Cookies.get(
+  //     'token',
+  //   )}`,
+  //   description:
+  //     'Returning patients can purchase an additional treatment plan for 30% off. Once you purchase a new plan, you have to finish your current plan before you can start on the new one.',
+  // },
 ];

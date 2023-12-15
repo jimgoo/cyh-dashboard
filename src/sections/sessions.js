@@ -8,7 +8,6 @@ import { SESSION_STATUS } from '@/utils/constants/constant';
 const Sessions = () => {
   const token = useUserToken();
   const todoItems = todoConfig(token);
-
   const productsData = useProducts();
   const { currentProduct } = useCurrentProduct();
   const [product_id, setProductId] = React.useState(null);
@@ -24,7 +23,7 @@ const Sessions = () => {
   return (
     <>
       {!returnUser
-        ? todoItems.sessions?.map((item, index) => {
+        ? todoItems.sessions?.slice(1, todoItems.sessions.length - 1).map((item, index) => {
             if (item.product.includes(product_id)) {
               return (
                 <TodoCard

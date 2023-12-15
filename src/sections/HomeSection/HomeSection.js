@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Sessions from '@/sections/sessions';
 import InitialSteps from '@/sections/initial-steps';
-import getSessions from '@/utils/constants/get-sessions';
 import {
   useUser,
   useUserTodo,
@@ -11,22 +10,25 @@ import {
   useProducts,
 } from '@/context/userContext';
 import SkeletonLoader from '@/components/loaders/skeleton-loader';
-import { HOME_DESCRIPTION, SESSION_STATUS, USER_STATUS } from '@/utils/constants/constant';
-import useTodo from '@/hooks/use-todo';
+import { USER_STATUS } from '@/utils/constants/constant';
+// import useTodo from '@/hooks/use-todo';
 import Conditional from '@/components/stateful/conditional';
 import UserStatusCards from '@/components/stateful/user-status-cards';
 import { useLoadingState } from '@/context/userContext';
 import { Alert } from 'antd';
 import { formatDateDayOnly } from '@/utils/helpers';
 import todoService from '@/services/todo.service';
+import TodayPlan from './TodayPlan';
+import useCapitalize from '@/hooks/use-capitalize';
 
 const HomeSection = () => {
+  const capitalize = useCapitalize();
   const productsData = useProducts();
   const todoData = useUserTodo();
   const userData = useUser();
   const token = useUserToken();
   const loadingState = useLoadingState();
-  const { completedExperiences } = useTodo(null, token, userData, todoData);
+  // const { completedExperiences } = useTodo(null, token, userData, todoData);
   const { currentProduct, updateCurrentProduct } = useCurrentProduct();
   const [returnUser, setReturnUser] = React.useState(null);
 
@@ -99,6 +101,7 @@ const HomeSection = () => {
   };
 
   const [product_id, setProductId] = React.useState(null);
+  console.log(product_id);
 
   useEffect(() => {
     if (productsData && currentProduct) {
@@ -136,39 +139,66 @@ const HomeSection = () => {
   const sessionStatus = userData.user_status === USER_STATUS.APPROVED || returnUser === true;
   if (userData && todoData) {
     return (
-      <section style={{ width: '100%', overflowX: 'none' }} className={'primary-bg homeContainer'}>
-        <div style={{ width: '80%', margin: 'auto', overflowY: 'none', marginBottom: '100px' }}>
-          <div className="flex justify-space-between">
-            <p className="font-medium font-weight-900">{`${getSessions(
-              product_id,
-            )} session plan`}</p>
-            <p className="font-medium font-weight-900">{completedExperiences} complete</p>
-          </div>
-          {showSelect && productsData && Object.keys(productsData).length > 1 && (
-            <div>
-              <select
-                value={selectedProduct}
-                onChange={handleProductChange}
-                style={{ padding: '10px' }}
-                className={'font-weight-400 font-medium'}
-              >
-                {productOptions.map((option) => (
-                  <option key={option.id} value={option.id}>
-                    {option.product_id}
-                  </option>
-                ))}
-              </select>
+      <section
+        style={{ width: '100%', overflowX: 'none', height: '100%' }}
+        className={'primary-bg homeContainer'}
+      >
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            paddingLeft: '40px',
+            gap: '40px',
+            height: '100%',
+          }}
+        >
+          <div
+            style={{ width: '80%', overflowY: 'none', marginBottom: '100px', paddingTop: '67px' }}
+          >
+            <h1 style={{ fontSize: '30px', fontWeight: 'bold', margin: 0 }}>
+              {`Hi ${capitalize(userData.firstname)}! We're so happy to see you here!`}
+            </h1>
+            <div style={{ display: 'flex', width: '100%', gap: '25px', marginTop: '22px' }}>
+              {/* COMPLETION CARD */}
+              <div className="card" style={{ width: '215px' }}>
+                <div className="progress-ring" style={{ marginBottom: '15px' }}>
+                  0%
+                </div>
+                <span style={{ fontSize: '27px', fontWeight: 500, marginBottom: '8px' }}>
+                  Completion
+                </span>
+                <div className="plan-count-pill">4 Session Plan</div>
+              </div>
+              {/* EMPTY CARD */}
+              <div className="card" style={{ flexGrow: 1 }}></div>
             </div>
-          )}
-          <div>
+            {showSelect && productsData && Object.keys(productsData).length > 1 && (
+              <div>
+                <select
+                  value={selectedProduct}
+                  onChange={handleProductChange}
+                  style={{ padding: '10px' }}
+                  className={'font-weight-400 font-medium'}
+                >
+                  {productOptions.map((option) => (
+                    <option key={option.id} value={option.id}>
+                      {option.product_id}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+            {/* <div>
             {!rejectedStatus && <p className="font-small font-weight-400">{HOME_DESCRIPTION}</p>}
+          </div> */}
+            <Conditional showWhen={!sessionStatus || rejectedStatus}>
+              <UserStatusCards status={userData.user_status} token={token} />
+            </Conditional>
+            <Conditional showWhen={!rejectedStatus}>
+              <div>{sessionStatus ? <Sessions /> : <InitialSteps />}</div>
+            </Conditional>
           </div>
-          <Conditional showWhen={!sessionStatus || rejectedStatus}>
-            <UserStatusCards status={userData.user_status} token={token} />
-          </Conditional>
-          <Conditional showWhen={!rejectedStatus}>
-            <div>{sessionStatus ? <Sessions /> : <InitialSteps />}</div>
-          </Conditional>
+          <TodayPlan userData={userData} />
         </div>
       </section>
     );
