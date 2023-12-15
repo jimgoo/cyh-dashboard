@@ -106,7 +106,6 @@ const Navigation = () => {
     // Set the initial state based on the current pathname
     const item = menuItems.find((item) => item.path === path);
     if (item) {
-      console.log(`Setting selected key to ${item.key}`);
       setSelectedKey(item.key);
     }
   }, []);
