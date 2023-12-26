@@ -1,12 +1,16 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Layout, theme, Grid } from 'antd';
-import { useUser, useUserToken } from '@/context/userContext';
+import { Layout, theme } from 'antd';
+import { useUser, useUserToken, useUserTodo } from '@/context/userContext';
 import { usePathname, useRouter } from 'next/navigation';
 import { PUBLIC_ENDPOINTS } from '@/utils/constants/constant';
+import RightSideHomePage from '../components/presentational/right-side-home-page';
+import styles from '@/styles/lra.module.scss';
+
 import dynamic from 'next/dynamic';
 const { Content } = Layout;
 import Script from 'next/script';
+
 const Navigation = dynamic(() => import('@/components/widgets/navigation'), { ssr: false });
 
 const MainLayout = ({ children }) => {
@@ -18,6 +22,10 @@ const MainLayout = ({ children }) => {
   const pathname = usePathname();
   const token = useUserToken();
   const user = useUser();
+  const todoData = useUserTodo();
+
+  const welcomeMessage = `Hi ${user?.firstname}! We're so happy to see you here!`;
+
   useEffect(() => {
     if (!token) {
       let status = false;
@@ -41,16 +49,14 @@ const MainLayout = ({ children }) => {
       {token || isPublic ? (
         <Layout>
           <Navigation />
-          <Layout>
-            <Content
-              style={{
-                minHeight: 280,
-                background: 'white',
-              }}
-            >
-              {children}
-            </Content>
-          </Layout>
+          {/* FIX HOMEPAGE BACKGROUND HERE */}
+          <div className="light-blue-bg-color width-100 height-inherit flex flex-row">
+            <div className={styles.homePageLayout}>
+              <h1>{welcomeMessage}</h1>
+              <div className={styles.homePageContent}>{children}</div>
+            </div>
+          </div>
+          <RightSideHomePage todoData={todoData} user={user} />
           {user && (
             <>
               <Script>

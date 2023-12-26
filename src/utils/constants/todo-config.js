@@ -29,16 +29,16 @@ export const todoConfig = () => {
       },
     ],
     sessions: [
-      {
-        todoItem: 'first_experience',
-        heading: 'Session 1',
-        route: `/first_experience`,
-        description:
-          'It’s time to schedule your first at-home ketamine experience with your guide. Choose Your Horizon provides professional guides as support for the first two sessions of every ketamine treatment package. During these two sessions your Guide will sit with you through the entirety of the session. Their focus is to help prepare you for your session, guide intention setting, support you during the session, and then help with your integration after  the session. Additional sessions are self-guided with a 15 minute check-in with your Guide at the start. We do offer the opportunity to continue to work with a guide during these experiences for an additional $80 per experience.',
-        repeatDescription:
-          'Congratulations! It’s time to schedule your first at-home guided ketamine session.We are so excited to embark on this journey with you. Please click the button below to select a time with one of our psychedelic guides. Please remember that you must have a peer present for your ketamine experience. We also require that your first ketamine session be completed with one of our psychedelic guides via zoom.',
-        product: ALL_PRODUCTS,
-      },
+      // {
+      //   todoItem: 'first_experience',
+      //   heading: 'Session 1',
+      //   route: `/first_experience`,
+      //   description:
+      //     'It’s time to schedule your first at-home ketamine experience with your guide. Choose Your Horizon provides professional guides as support for the first two sessions of every ketamine treatment package. During these two sessions your Guide will sit with you through the entirety of the session. Their focus is to help prepare you for your session, guide intention setting, support you during the session, and then help with your integration after  the session. Additional sessions are self-guided with a 15 minute check-in with your Guide at the start. We do offer the opportunity to continue to work with a guide during these experiences for an additional $80 per experience.',
+      //   repeatDescription:
+      //     'Congratulations! It’s time to schedule your first at-home guided ketamine session.We are so excited to embark on this journey with you. Please click the button below to select a time with one of our psychedelic guides. Please remember that you must have a peer present for your ketamine experience. We also require that your first ketamine session be completed with one of our psychedelic guides via zoom.',
+      //   product: ALL_PRODUCTS,
+      // },
       {
         todoItem: 'second_experience',
         heading: 'Session 2',
@@ -48,7 +48,7 @@ export const todoConfig = () => {
       },
       {
         todoItem: 'video_consultation_followup',
-        heading: 'Follow Up Consultation',
+        heading: 'Follow-up Consult',
         route: `/video_consultation_followup`,
         description:
           'Great work on your progress so far! This step is to ensure that we are providing the best service to you and to improve your results.',
@@ -231,13 +231,13 @@ export const globalTodos = [
   //   route: `https://checkout.chooseketamine.com/nmi?planId=59e78890-9661-4a95-8c14-ff921ab99d3e&userToken=${Cookies.get('token')}&nextURL=${encodeURIComponent(INTEGRATION_URL)}`,
   //   description: 'Add an additional integration session with one of our guides.',
   // },
-  {
-    todoItem: 'purchase_pack',
-    heading: 'Purchase a New Plan',
-    route: `https://www.chooseketamine.com/app/purchase-returning-client?token=${Cookies.get(
-      'token',
-    )}`,
-    description:
-      'Returning patients can purchase an additional treatment plan for 30% off. Once you purchase a new plan, you have to finish your current plan before you can start on the new one.',
-  },
+  // {
+  //   todoItem: 'purchase_pack',
+  //   heading: 'Purchase a New Plan',
+  //   route: `https://www.chooseketamine.com/app/purchase-returning-client?token=${Cookies.get(
+  //     'token',
+  //   )}`,
+  //   description:
+  //     'Returning patients can purchase an additional treatment plan for 30% off. Once you purchase a new plan, you have to finish your current plan before you can start on the new one.',
+  // },
 ];

@@ -44,7 +44,7 @@ const Invite = () => {
               }}
             >
               {/* <h2>Please Check Your Email</h2> */}
-              <h3 style={{ color: '#2a2d3f' }}>We have sent you a login link to your email.</h3>
+              <h3 style={{ color: '#2a2d3f' }}>We have sent a login link to your email.</h3>
               <div style={{ maxWidth: 600, color: '#aaa' }}>
                 <p>
                   Don't see the email? Please check your promotional or spam folder! If you still

@@ -6,6 +6,7 @@ import { useUser, useUserTodo, useUserToken } from '@/context/userContext';
 import { SESSION_STATUS } from '@/utils/constants/constant';
 import { formatDate } from '@/utils/helpers';
 import IdUpload from '@/components/stateful/id-upload';
+import styles from '@/styles/lra.module.scss';
 
 const TodoCard = ({ todoItem, description, route, heading, isExpanded = false }) => {
   const userData = useUser();
@@ -34,14 +35,17 @@ const TodoCard = ({ todoItem, description, route, heading, isExpanded = false })
       {!status ? (
         <Collapse
           onChange={headingChange}
-          size="large"
+          // size="large"
           style={{
             background: 'white',
             marginTop: '20px',
             border: 'none',
             lineHeight: '.5px',
+            fontSize: '24px',
+            padding: '0.85rem',
+            borderRadius: '20px',
           }}
-          className={'font-weight-700 font-large'}
+          className={styles.todoCardHeadline}
           expandIconPosition={'end'}
           bordered={false}
           defaultActiveKey={isExpanded ? ['1'] : []}
@@ -61,7 +65,7 @@ const TodoCard = ({ todoItem, description, route, heading, isExpanded = false })
                     {route && (
                       <Button
                         type="text"
-                        className="bg-primary-color white-color primary-title button-small"
+                        className="bg-primary-color white-color primary-title flex items-center align-center border-radius-20"
                         onClick={() => navigation.push(route)}
                       >
                         {todoData[todoItem]?.status === SESSION_STATUS.IN_COMPLETE &&
