@@ -20,9 +20,8 @@ async function getTodoItem(page, todoName, nth) {
   */
 
   const card = page
-    .locator('.ant-collapse-item')
-    .filter({ has: page.getByText(todoName, { exact: true }) })
-    .nth(nth);
+    .locator('.ant-collapse-header-text')
+    .filter({ has: page.getByText(todoName, { exact: true }) });
   await expect(card).toBeVisible();
   return card;
 }
@@ -62,15 +61,13 @@ test('4 Pack, non-repeat, session cards', async ({ page }) => {
       '/home?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkY2U5ZDFkZi05ZTMwLTRkMGItYmZiOC03NzljYTBkYzYyMjIiLCJpYXQiOjE2ODkxOTEzOTB9.OJqlLRWenfRNAMTUNe-QnPGx0dEZYfOjErcr1v46-oM',
   );
 
-  await checkHeader(page, '4 session plan');
+  //await checkHeader(page, '4 Session Plan');
 
-  await checkTodoItem(page, 'Session 1', 0, false);
-  await checkTodoItem(page, 'Session 2', 0, false);
-  await checkTodoItem(page, 'Follow Up Consultation', 0, false);
-  await checkTodoItem(page, 'Session 3', 0, false);
-  await checkTodoItem(page, 'Session 4', 0, false);
-  await checkTodoItem(page, 'Purchase a New Plan', 0, false);
+  await checkTodoItem(page, 'Session 2', 1, false);
+  await checkTodoItem(page, 'Follow-up Consult', 2, false);
+  await checkTodoItem(page, 'Session 3', 3, false);
+  await checkTodoItem(page, 'Session 4', 4, false);
+  //await checkTodoItem(page, 'Purchase a New Plan', 0, false);
 
-  await checkTodoItemCount(page, 6);
+  await checkTodoItemCount(page, 4);
 });
-

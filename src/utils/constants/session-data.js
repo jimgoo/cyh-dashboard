@@ -726,7 +726,7 @@ export const sessions = [
   },
   {
     id: 'eight_experience',
-    title: 'Schedule your eight session',
+    title: 'Schedule your eighth session',
     paragraphText: [
       'Choose Ketamine provides professional guides as support for the first two sessions of every Ketamine treatment package. Sessions 3 - 6 are self-guided with a 15 minute check-in with our Guide at the start. The Guide will help you prepare for the experience and check that your peer is present. We do offer the opportunity to continue to work with our guides during these experiences for $80 per experience.',
     ],

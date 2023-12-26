@@ -1,7 +1,8 @@
 export const WELCOME_MESSAGE = 'Welcome back!';
 export const WELCOME_MESSAGE_DESCRIPTION = 'A sign in link will be sent to your email.';
 
-export const HOME_DESCRIPTION = 'These are the steps in your current journey.';
+export const HOME_DESCRIPTION =
+  'View the details of your future sessions including the session plan, important reminders, or requirements for the specific session.';
 
 export const dateOptions = {
   year: 'numeric',
@@ -82,3 +83,8 @@ export const SCHEDULED_ACTIONS = {
   SCHEDULE_GUIDED: 'Schedule Guided Experience',
   SCHEDULE_SELF_GUIDED: 'Schedule Self Guided Experience',
 };
+
+export const SESSION_REMINDERS = [
+  'Please set aside at least 3 uninterrupted hours for your session.',
+  'If you must reschedule, please do so at least 24 hours in advance to avoid a $50 fee appointment cancellation fee.',
+];

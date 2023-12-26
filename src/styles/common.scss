@@ -85,6 +85,7 @@
 
 
 //colors
+
 .mid-gray {
   color: $mid-gray;
 }
@@ -119,6 +120,10 @@
   background-color: $white-color !important;
 }
 
+.bg-dark-indigo-color {
+  background-color: $dark-indigo-color !important;
+}
+
 .bg-black {
   background-color: $black-color !important;
 }
@@ -143,6 +148,10 @@
   color: $grey-color !important;
 }
 
+.medium-gray-color {
+  color: $medium-gray-color !important;
+}
+
 .selected-field-color {
   color: $selected-field-color;
 }
@@ -151,12 +160,20 @@
   color: $dark-gray-color !important;
 }
 
+.dark-indigo-color {
+  color: $dark-indigo-color !important
+}
+
 .orange-yellowish-color {
   color: $orange-yellowish-color !important;
 }
 
 .orange-color-300 {
   color: $orange-color-300 !important;
+}
+
+.lilac-color {
+  color: $lilac-color !important;
 }
 
 //bg-colors
@@ -189,10 +206,20 @@
   background-color: $light-gray-color !important;
 }
 
+
+.light-blue-bg-color {
+  background-color: $light-blue-color !important;
+}
+
+
+.lilac-bg-color {
+  background-color: $lilac-color !important;
+}
+
 .bg-card-white {
   background-color: $white-color !important;
   border-radius: $border-radius-10 !important;
-  box-shadow: -2px 4px 15px rgba(131, 164, 249, 0.25) !important;
+  // box-shadow: -2px 4px 15px rgba(131, 164, 249, 0.25) !important;
 }
 
 .box-shadow-global {
@@ -360,6 +387,10 @@ a {
   width: 40px;
 }
 
+.gap-4 {
+  gap: 4rem !important;
+}
+
 // scroll bar style
 ::-webkit-scrollbar {
   width: 3px;
@@ -406,31 +437,26 @@ width: 50%;
   width: 15%;
   height:40px ;
   border-radius:20px ;
-
 }
-.homeContainer{
+
+/* .homeContainer{
   min-height: 100vh;
 }
 @media(max-width: 768px){
   .homeContainer{
-    min-height: 120vh;
-  }
+     min-height: 120vh;
+   }
   .button{
     width: 100%;
   }
   .button-small{
     width: 40%;
   }
-}
-
-
-.primary-bg{
-  background: linear-gradient(180deg, rgba(47, 66, 246, 0.01) 0%, rgba(163, 139, 193, 0.19) 35.91%, rgba(209, 149, 147, 0.28) 72.07%, rgba(217, 217, 217, 0.00) 100%);
-}
+} */
 
 
 .font-large{
-  font-size: 22px;
+  font-size: 24px;
 }
 .font-medium{
   font-size: 20px;
@@ -439,6 +465,9 @@ width: 50%;
   font-size: 16px;
 }
 
+.font-24 {
+  font-size: 24px;
+}
 
 .font-md{
   font-weight: bolder;

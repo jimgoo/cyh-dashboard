@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Sessions from '@/sections/sessions';
 import InitialSteps from '@/sections/initial-steps';
+import ProgressCard from '@/components/presentational/progress-card';
+import BlankCard from '@/components/presentational/blank-card';
 import getSessions from '@/utils/constants/get-sessions';
 import {
   useUser,
@@ -19,6 +21,7 @@ import { useLoadingState } from '@/context/userContext';
 import { Alert } from 'antd';
 import { formatDateDayOnly } from '@/utils/helpers';
 import todoService from '@/services/todo.service';
+import styles from '@/styles/lra.module.scss';
 
 const HomeSection = () => {
   const productsData = useProducts();
@@ -136,13 +139,20 @@ const HomeSection = () => {
   const sessionStatus = userData.user_status === USER_STATUS.APPROVED || returnUser === true;
   if (userData && todoData) {
     return (
-      <section style={{ width: '100%', overflowX: 'none' }} className={'primary-bg homeContainer'}>
-        <div style={{ width: '80%', margin: 'auto', overflowY: 'none', marginBottom: '100px' }}>
-          <div className="flex justify-space-between">
-            <p className="font-medium font-weight-900">{`${getSessions(
-              product_id,
-            )} session plan`}</p>
-            <p className="font-medium font-weight-900">{completedExperiences} complete</p>
+      <section
+      /*  className={'primary-bg homeContainer'}
+        style={{
+          height: '100vh',
+        }} */
+      >
+        <div style={{ width: '100%', margin: 'auto', overflowY: 'none', marginBottom: '100px' }}>
+          <div className="flex flex-row justify-space-between" style={{ gap: 25 }}>
+            <ProgressCard todoData={todoData} />
+            <BlankCard />
+          </div>
+
+          <div className="flex justify-start">
+            <div className={styles.futureSessionsHeadline}>Future Sessions</div>
           </div>
           {showSelect && productsData && Object.keys(productsData).length > 1 && (
             <div>
