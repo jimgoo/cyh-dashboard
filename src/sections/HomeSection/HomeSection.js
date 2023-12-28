@@ -16,7 +16,7 @@ import useTodo from '@/hooks/use-todo';
 import Conditional from '@/components/stateful/conditional';
 import UserStatusCards from '@/components/stateful/user-status-cards';
 import { useLoadingState } from '@/context/userContext';
-import { Alert } from 'antd';
+import { Alert, Card, Progress, Tag, Typography } from 'antd';
 import { formatDateDayOnly } from '@/utils/helpers';
 import todoService from '@/services/todo.service';
 
@@ -109,10 +109,7 @@ const HomeSection = () => {
 
   if (loadingState.user.isLoading || loadingState.todo.isLoading) {
     return (
-      <section
-        style={{ width: '100%', minHeight: '100vh', overflowX: 'none' }}
-        className={'primary-bg'}
-      >
+      <section style={{ width: '100%', minHeight: '100vh', overflowX: 'none' }}>
         <div>
           <SkeletonLoader />
           <SkeletonLoader />
@@ -123,7 +120,7 @@ const HomeSection = () => {
   }
   if ((!loadingState.user.isLoading && !userData) || (!loadingState.todo.isLoading && !todoData)) {
     return (
-      <div className={'primary-bg homeContainer'}>
+      <div className={'homeContainer'}>
         <Alert
           style={{ width: '80%', margin: 'auto', marginTop: 20 }}
           message={<div style={{ fontWeight: 'bold' }}>Error</div>}
@@ -134,15 +131,53 @@ const HomeSection = () => {
     );
   }
   const sessionStatus = userData.user_status === USER_STATUS.APPROVED || returnUser === true;
+
+  const greeting = userData.firstname ? `Hi ${userData.firstname}!` : 'Hello!';
+  const sessionCount = getSessions(product_id);
+  const percentComplete = completedExperiences / sessionCount;
+
   if (userData && todoData) {
     return (
-      <section style={{ width: '100%', overflowX: 'none' }} className={'primary-bg homeContainer'}>
-        <div style={{ width: '80%', margin: 'auto', overflowY: 'none', marginBottom: '100px' }}>
-          <div className="flex justify-space-between">
-            <p className="font-medium font-weight-900">{`${getSessions(
-              product_id,
-            )} session plan`}</p>
-            <p className="font-medium font-weight-900">{completedExperiences} complete</p>
+      <section
+        style={{
+          backgroundColor: '#EEF3FA',
+          overflowX: 'none',
+          paddingBottom: '4em',
+          paddingTop: '2em',
+        }}
+        className="homeContainer"
+      >
+        <div style={{ width: '80%', margin: 'auto', overflowY: 'none' }}>
+          <div className="font-large font-weight-900 margin-bottom">
+            {`${greeting} We're so happy to see you here!`}
+          </div>
+          <Card
+            style={{ width: '215px' }}
+            bodyStyle={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}
+            className="margin-bottom-large"
+          >
+            <Progress
+              type="circle"
+              percent={percentComplete}
+              strokeColor="rgba(67, 136, 240, 0.33)"
+              strokeWidth={10}
+            />
+            <div className="font-medium">Completion</div>
+            <div>
+              <Tag
+                color="rgba(67, 136, 240, 0.33)"
+                style={{ borderRadius: '16px', padding: '0 12px' }}
+              >
+                <Typography.Text strong>{`${sessionCount} session plan`}</Typography.Text>
+              </Tag>
+            </div>
+          </Card>
+          <div>
+            <div className="font-medium font-weight-900 margin-bottom-small">Future sessions</div>
+            <div>
+              View the details of your future sessions including the session plan, important
+              reminders, or requirements for the specific session.
+            </div>
           </div>
           {showSelect && productsData && Object.keys(productsData).length > 1 && (
             <div>
@@ -160,9 +195,6 @@ const HomeSection = () => {
               </select>
             </div>
           )}
-          <div>
-            {!rejectedStatus && <p className="font-small font-weight-400">{HOME_DESCRIPTION}</p>}
-          </div>
           <Conditional showWhen={!sessionStatus || rejectedStatus}>
             <UserStatusCards status={userData.user_status} token={token} />
           </Conditional>

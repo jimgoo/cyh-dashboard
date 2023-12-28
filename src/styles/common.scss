@@ -403,10 +403,8 @@ width: 50%;
 }
 
 .button-small{
-  width: 15%;
   height:40px ;
   border-radius:20px ;
-
 }
 .homeContainer{
   min-height: 100vh;
@@ -418,16 +416,7 @@ width: 50%;
   .button{
     width: 100%;
   }
-  .button-small{
-    width: 40%;
-  }
 }
-
-
-.primary-bg{
-  background: linear-gradient(180deg, rgba(47, 66, 246, 0.01) 0%, rgba(163, 139, 193, 0.19) 35.91%, rgba(209, 149, 147, 0.28) 72.07%, rgba(217, 217, 217, 0.00) 100%);
-}
-
 
 .font-large{
   font-size: 22px;
@@ -454,13 +443,6 @@ color-secondary{
 }
 .success{
   color:#87D6C6;
-}
-
-
-@media(min-width: 768px)and (max-width: 1024px){
-  .button-small{
-    width: 25%;
-  }
 }
 
 .ant-modal-wrap{
@@ -490,4 +472,41 @@ color-secondary{
   .file-upload-region{
     width: 100%;
   }
+}
+
+.margin-top {
+  margin-top: 1em;
+}
+
+.margin-bottom {
+  margin-bottom: 1em;
+}
+
+.margin-bottom-small {
+  margin-bottom: 0.5em;
+}
+
+.margin-bottom-large {
+  margin-bottom: 2em;
+}
+
+.hidden-scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.hidden-scrollbar::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.selected-menu-item {
+  color: black;
+}
+
+.deselected-menu-item {
+  color: #949494;
+}
+
+.ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
 }

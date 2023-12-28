@@ -24,7 +24,7 @@ const INTEGRATION_SESSION = {
   ],
   actions: [
     {
-      status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+      status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
       title: 'Schedule',
     },
     {
@@ -66,7 +66,7 @@ const GROUP_INTEGRATION_SESSION = {
   ],
   actions: [
     {
-      status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+      status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
       title: 'Schedule',
     },
     {
@@ -126,7 +126,7 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.SCHEDULED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.SCHEDULED],
         title: 'Review And Sign',
       },
     ],
@@ -152,7 +152,7 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule My Consultation',
       },
       {
@@ -190,7 +190,7 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule My Consultation',
       },
       {
@@ -246,7 +246,7 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule',
       },
       {
@@ -287,7 +287,7 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule',
       },
       {
@@ -325,7 +325,7 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Begin',
       },
       {
@@ -462,12 +462,12 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Guided Experience',
         isGuided: true,
       },
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Self Guided Experience',
       },
       {
@@ -503,12 +503,12 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Guided Experience',
         isGuided: true,
       },
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Self Guided Experience',
       },
       {
@@ -546,7 +546,7 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Begin',
       },
       {
@@ -582,12 +582,12 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Guided Experience',
         isGuided: true,
       },
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Self Guided Experience',
       },
       {
@@ -623,12 +623,12 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Guided Experience',
         isGuided: true,
       },
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Self Guided Experience',
       },
       {
@@ -666,7 +666,7 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Begin',
       },
       {
@@ -702,12 +702,12 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Guided Experience',
         isGuided: true,
       },
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Self Guided Experience',
       },
       {
@@ -743,12 +743,12 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Guided Experience',
         isGuided: true,
       },
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Schedule Self Guided Experience',
       },
       {
@@ -786,7 +786,7 @@ export const sessions = [
     ],
     actions: [
       {
-        status: [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED],
+        status: [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED],
         title: 'Begin',
       },
       {

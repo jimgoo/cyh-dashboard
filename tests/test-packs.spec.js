@@ -48,12 +48,11 @@ async function checkTodoItemCount(page, expectedCount) {
   await expect(page.locator('.ant-collapse-item')).toHaveCount(expectedCount);
 }
 
-async function clickTodoCard(page, todoName, nth) {
-  // `page`: the page object
-  // `todoName`: the name of the todo item
-  // `nth`: the index of the todo item in the list of todo items with the name `todoName`
-  const card = await getTodoItem(page, todoName, nth);
-  await card.click();
+async function checkSidebar(page) {
+  const sidebar = page
+    .locator('.ant-layout-sider')
+    .filter({ has: page.getByText('Schedule your first session', { exact: true }) });
+  await expect(sidebar).toBeVisible();
 }
 
 test('4 Pack, non-repeat, session cards', async ({ page }) => {
@@ -64,13 +63,13 @@ test('4 Pack, non-repeat, session cards', async ({ page }) => {
 
   await checkHeader(page, '4 session plan');
 
-  await checkTodoItem(page, 'Session 1', 0, false);
   await checkTodoItem(page, 'Session 2', 0, false);
   await checkTodoItem(page, 'Follow Up Consultation', 0, false);
   await checkTodoItem(page, 'Session 3', 0, false);
   await checkTodoItem(page, 'Session 4', 0, false);
   await checkTodoItem(page, 'Purchase a New Plan', 0, false);
 
-  await checkTodoItemCount(page, 6);
-});
+  await checkSidebar(page);
 
+  await checkTodoItemCount(page, 5);
+});

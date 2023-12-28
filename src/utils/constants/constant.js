@@ -69,7 +69,7 @@ export function getUserStatusDetails(userStatus) {
 
 export const SESSION_STATUS = {
   COMPLETED: 'completed',
-  IN_COMPLETE: 'incomplete',
+  INCOMPLETE: 'incomplete',
   SCHEDULED: 'scheduled',
   CANCELED: 'canceled',
   RE_SCHEDULED: 'rescheduled',

@@ -7,6 +7,7 @@ import { PUBLIC_ENDPOINTS } from '@/utils/constants/constant';
 import dynamic from 'next/dynamic';
 const { Content } = Layout;
 import Script from 'next/script';
+import Sidebar from '@/components/widgets/sidebar';
 const Navigation = dynamic(() => import('@/components/widgets/navigation'), { ssr: false });
 
 const MainLayout = ({ children }) => {
@@ -41,16 +42,18 @@ const MainLayout = ({ children }) => {
       {token || isPublic ? (
         <Layout>
           <Navigation />
-          <Layout>
+          <Layout style={{ maxHeight: '100vh', overflow: 'hidden' }}>
             <Content
+              className="hidden-scrollbar"
               style={{
-                minHeight: 280,
-                background: 'white',
+                overflowY: 'auto',
+                background: '#EEF3FA',
               }}
             >
               {children}
             </Content>
           </Layout>
+          <Sidebar />
           {user && (
             <>
               <Script>

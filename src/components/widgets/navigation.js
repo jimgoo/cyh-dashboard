@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
-import ChooseLife from '@/assets/svgs/logo-white.svg';
-import { Menu, Grid, Layout, Card, Button } from 'antd';
+import ChooseLife from '@/assets/logo.webp';
+import { Grid, Layout, Card, Button } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
@@ -14,6 +14,8 @@ import PeopleIcon from '@mui/icons-material/People';
 import { useUserToken } from '@/context/userContext';
 import tokenService from '@/services/token.service';
 import { toast } from 'react-toastify';
+
+import Menu from '@/components/widgets/menu';
 
 const { useBreakpoint } = Grid;
 
@@ -34,30 +36,30 @@ const Navigation = ({ collapsed }) => {
       label: 'Home',
       path: '/home',
     },
-    // {
-    //   key: 2,
-    //   icon: <PersonIcon />,
-    //   label: 'Integration',
-    //   path: '/integration',
-    // },
-    // {
-    //   key: 3,
-    //   icon: <PeopleIcon />,
-    //   label: 'Group Integration',
-    //   path: '/group-integration',
-    // },
-    // {
-    //   key: 4,
-    //   icon: <HelpIcon />,
-    //   label: 'FAQs',
-    //   path: '/faq',
-    // },
-    // {
-    //   key: 5,
-    //   icon: <ContactSupportIcon />,
-    //   label: 'Contact',
-    //   path: '/contact',
-    // },
+    {
+      key: 2,
+      icon: <PersonIcon />,
+      label: 'Integration',
+      path: '/integration',
+    },
+    {
+      key: 3,
+      icon: <PeopleIcon />,
+      label: 'Group Integration',
+      path: '/group-integration',
+    },
+    {
+      key: 4,
+      icon: <HelpIcon />,
+      label: 'FAQs',
+      path: '/faq',
+    },
+    {
+      key: 5,
+      icon: <ContactSupportIcon />,
+      label: 'Contact',
+      path: '/contact',
+    },
   ];
 
   // Add path to menu items
@@ -80,53 +82,7 @@ const Navigation = ({ collapsed }) => {
   return (
     <>
       {!screens.xs ? (
-        <Sider
-          style={{
-            background: '#4261EF',
-            borderTopRightRadius: '20px',
-            borderBottomRightRadius: '20px',
-            minHeight: '100vh',
-            maxHeight: 'fit-content',
-          }}
-          trigger={null}
-        >
-          <div className="flex justify-center">
-            <Image
-              priority={true}
-              alt={'logo'}
-              src={ChooseLife}
-              style={{ margin: 25, width: 90, height: 'auto' }}
-            />
-          </div>
-          <div>
-            <Menu
-              style={{
-                background: '#4261EF',
-                fontSize: '16px',
-                fontWeight: '500',
-                color: 'white',
-              }}
-              onChange={(a) => {
-                console.log('onChange for menu', a);
-              }}
-              mode="inline"
-              selectedKeys={[selectedKey.toString()]}
-              items={menuItems}
-            />
-            <Button
-              type="text"
-              className="bg-primary-color white-color primary-title button-small"
-              onClick={() => {
-                tokenService.deleteLocalAccessToken();
-                router.push('/auth/login');
-                toast.success('Logout Successfully!');
-              }}
-              style={{ margin: 'auto', position: 'absolute', bottom: '20px', left: '20%' }}
-            >
-              Logout
-            </Button>
-          </div>
-        </Sider>
+        <Menu />
       ) : (
         <Card
           style={{
