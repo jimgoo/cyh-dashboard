@@ -23,8 +23,8 @@ const Sessions = () => {
 
   return (
     <>
-      {!returnUser
-        ? todoItems.sessions?.map((item, index) => {
+      {!returnUser && todoItems.sessions
+        ? todoItems.sessions.slice(1).map((item, index) => {
             if (item.product.includes(product_id)) {
               return (
                 <TodoCard

@@ -15,7 +15,7 @@ const FaqsSection = () => {
 
   return (
     <>
-      <section style={{ width: '100%', overflowX: 'none' }} className={'primary-bg homeContainer'}>
+      <section style={{ width: '100%', overflowX: 'none' }} className={'homeContainer'}>
         <div style={{ width: '80%', margin: 'auto', overflowY: 'none', marginBottom: '100px' }}>
           <div className="flex justify-space-between">
             <p className="font-medium font-weight-900">Frequently Asked Questions</p>

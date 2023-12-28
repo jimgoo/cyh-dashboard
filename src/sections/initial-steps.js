@@ -36,7 +36,7 @@ const InitialSteps = () => {
       items.map((e) => {
         if (
           todoData &&
-          [SESSION_STATUS.IN_COMPLETE, SESSION_STATUS.CANCELED].includes(todoData[e]?.status)
+          [SESSION_STATUS.INCOMPLETE, SESSION_STATUS.CANCELED].includes(todoData[e]?.status)
         ) {
           count++;
         }

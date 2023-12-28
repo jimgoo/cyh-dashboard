@@ -64,7 +64,7 @@ const TodoCard = ({ todoItem, description, route, heading, isExpanded = false })
                         className="bg-primary-color white-color primary-title button-small"
                         onClick={() => navigation.push(route)}
                       >
-                        {todoData[todoItem]?.status === SESSION_STATUS.IN_COMPLETE &&
+                        {todoData[todoItem]?.status === SESSION_STATUS.INCOMPLETE &&
                         !(todoItem === 'telemedicine_paperwork')
                           ? 'Schedule'
                           : 'View'}
